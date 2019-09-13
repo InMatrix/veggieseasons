@@ -47,30 +47,6 @@ class _SearchScreenState extends State<SearchScreen> {
     );
   }
 
-  Widget _buildSearchResults(List<Veggie> veggies) {
-    if (veggies.isEmpty) {
-      return Center(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24),
-          child: Text(
-            'No veggies matching your search terms were found.',
-            style: Styles.headlineDescription,
-          ),
-        ),
-      );
-    }
-
-    return ListView.builder(
-      itemCount: veggies.length,
-      itemBuilder: (context, i) {
-        return Padding(
-          padding: EdgeInsets.only(left: 16, right: 16, bottom: 24),
-          child: VeggieHeadline(veggies[i]),
-        );
-      },
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     final model = ScopedModel.of<AppState>(context, rebuildOnChange: true);
@@ -86,9 +62,6 @@ class _SearchScreenState extends State<SearchScreen> {
             child: Column(
               children: [
                 _createSearchBox(),
-                Expanded(
-                  child: _buildSearchResults(model.searchVeggies(terms)),
-                ),
               ],
             ),
           ),
