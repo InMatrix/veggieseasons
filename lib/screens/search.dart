@@ -62,11 +62,72 @@ class _SearchScreenState extends State<SearchScreen> {
             child: Column(
               children: [
                 _createSearchBox(),
+                Container(
+                  height: 100.0,
+                  child: Row(
+                    children: <Widget>[
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(15.0),
+                        child: Image.asset(
+                          'assets/images/apple.jpg',
+                          width: 100.0,
+                          height: 100.0,
+                          fit: BoxFit.fill,
+                        ),
+                      ),
+                      Flexible(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: <Widget>[
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Row(
+                                children: <Widget>[
+                                  Text(
+                                    "Apples",
+                                    style: TextStyle(
+                                      fontSize: 20.0,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  buildDot(),
+                                  buildDot(),
+                                  buildDot(),
+                                  buildDot(),
+                                  buildDot(),
+                                ],
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                  "Green or red, they're generally round and tasty"),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
         );
       },
+    );
+  }
+
+  Widget buildDot() {
+    return Padding(
+      padding: EdgeInsets.all(2.0),
+      child: Container(
+        width: 10.0,
+        height: 10.0,
+        decoration: BoxDecoration(
+          color: Color.fromRGBO(217, 22, 44, 1.0),
+          shape: BoxShape.circle,
+        ),
+      ),
     );
   }
 }
